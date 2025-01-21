@@ -1,3 +1,9 @@
 # Toy Credit Tranche Pricer
 
-Simple CDS Tranche pricer to illustrate the dynamic between hazard rate, correlation, maturity and attach/detach rates.
+Simple CDS Tranche pricer to illustrate the dynamic between:
+- hazard rates
+- correlations
+- maturity
+- attach/detach rates.
+
+check: https://croquelois.github.io/toyCreditTranchePricer/index.html
