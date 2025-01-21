@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toy CDS Tranches pricer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="ext/numeric.js"></script>
+    <script src="ext/cholesky.js"></script>    
+    <script src="cdsTranches.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Toy CDS Tranches pricer</h1>
+    <h2>Structure</h2>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Tranche Notional</span>
+      <input type="text" class="form-control" id="notional" value="10M">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Maturity</span>
+      <input type="text" class="form-control" id="maturity" value="5Y">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Attach point %</span>
+      <input type="text" class="form-control" id="attachPt" value="25%">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Detach point %</span>
+      <input type="text" class="form-control" id="detachPt" value="50%">
+    </div>
+    <h2>Market data</h2>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Interest rate %</span>
+      <input type="text" class="form-control" id="intRate" value="4%">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Hazard rates, %, comma separated</span>
+      <input type="text" class="form-control" id="hazardRates" value="2%, 3%, 1.5%, 2.5%">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Correlation matrix, %, comma separated, multi-lines</span>
+      <textarea class="form-control" id="corrMatrix">100%, 20%, 30%, 10%
+20%, 100%, 25%, 15%
+30%, 25%, 100%, 20%
+10%, 15%, 20%, 100%</textarea>
+    </div>
+    <h2>Pricing parameter</h2>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Nb of MC paths</span>
+      <input type="text" class="form-control" id="nbPaths" value="10000">
+    </div>
+    <button class="btn btn-primary mb-3" onclick="compute()">Compute</button>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Protection leg</span>
+      <input type="text" class="form-control" id="protection" readonly value="">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Premium leg</span>
+      <input type="text" class="form-control" id="premium" readonly value="">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Spread</span>
+      <input type="text" class="form-control" id="spread" readonly value="">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </div>
+  </body>
+</html>
